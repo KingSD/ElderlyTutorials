@@ -22,6 +22,9 @@
 		F25435A11904C2CD0089DA28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25435801904C2CC0089DA28 /* UIKit.framework */; };
 		F25435A91904C2CD0089DA28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F25435A71904C2CD0089DA28 /* InfoPlist.strings */; };
 		F25435AB1904C2CD0089DA28 /* ElderlyTutorialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F25435AA1904C2CD0089DA28 /* ElderlyTutorialsTests.m */; };
+		F25435B8190612180089DA28 /* LSTableApps.m in Sources */ = {isa = PBXBuildFile; fileRef = F25435B7190612180089DA28 /* LSTableApps.m */; };
+		F25435BB190612A80089DA28 /* LSTableTutorials.m in Sources */ = {isa = PBXBuildFile; fileRef = F25435BA190612A80089DA28 /* LSTableTutorials.m */; };
+		F25435BE190613C20089DA28 /* LSViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F25435BD190613C20089DA28 /* LSViewShow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,12 @@
 		F25435A61904C2CD0089DA28 /* ElderlyTutorialsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ElderlyTutorialsTests-Info.plist"; sourceTree = "<group>"; };
 		F25435A81904C2CD0089DA28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F25435AA1904C2CD0089DA28 /* ElderlyTutorialsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElderlyTutorialsTests.m; sourceTree = "<group>"; };
+		F25435B6190612180089DA28 /* LSTableApps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSTableApps.h; path = view/LSTableApps.h; sourceTree = "<group>"; };
+		F25435B7190612180089DA28 /* LSTableApps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSTableApps.m; path = view/LSTableApps.m; sourceTree = "<group>"; };
+		F25435B9190612A80089DA28 /* LSTableTutorials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSTableTutorials.h; path = view/LSTableTutorials.h; sourceTree = "<group>"; };
+		F25435BA190612A80089DA28 /* LSTableTutorials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSTableTutorials.m; path = view/LSTableTutorials.m; sourceTree = "<group>"; };
+		F25435BC190613C20089DA28 /* LSViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSViewShow.h; path = view/LSViewShow.h; sourceTree = "<group>"; };
+		F25435BD190613C20089DA28 /* LSViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSViewShow.m; path = view/LSViewShow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +123,12 @@
 		F25435821904C2CC0089DA28 /* ElderlyTutorials */ = {
 			isa = PBXGroup;
 			children = (
+				F25435B5190611090089DA28 /* model */,
+				F25435B4190610E40089DA28 /* view */,
 				F254358B1904C2CC0089DA28 /* LSAppDelegate.h */,
 				F254358C1904C2CC0089DA28 /* LSAppDelegate.m */,
 				F254358E1904C2CC0089DA28 /* Main_iPhone.storyboard */,
 				F25435911904C2CC0089DA28 /* Main_iPad.storyboard */,
-				F25435941904C2CC0089DA28 /* LSViewController.h */,
-				F25435951904C2CC0089DA28 /* LSViewController.m */,
 				F25435971904C2CC0089DA28 /* Images.xcassets */,
 				F25435831904C2CC0089DA28 /* Supporting Files */,
 			);
@@ -153,6 +162,28 @@
 				F25435A71904C2CD0089DA28 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F25435B4190610E40089DA28 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F25435941904C2CC0089DA28 /* LSViewController.h */,
+				F25435951904C2CC0089DA28 /* LSViewController.m */,
+				F25435B6190612180089DA28 /* LSTableApps.h */,
+				F25435B7190612180089DA28 /* LSTableApps.m */,
+				F25435B9190612A80089DA28 /* LSTableTutorials.h */,
+				F25435BA190612A80089DA28 /* LSTableTutorials.m */,
+				F25435BC190613C20089DA28 /* LSViewShow.h */,
+				F25435BD190613C20089DA28 /* LSViewShow.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		F25435B5190611090089DA28 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +287,10 @@
 			files = (
 				F25435891904C2CC0089DA28 /* main.m in Sources */,
 				F254358D1904C2CC0089DA28 /* LSAppDelegate.m in Sources */,
+				F25435BE190613C20089DA28 /* LSViewShow.m in Sources */,
 				F25435961904C2CC0089DA28 /* LSViewController.m in Sources */,
+				F25435BB190612A80089DA28 /* LSTableTutorials.m in Sources */,
+				F25435B8190612180089DA28 /* LSTableApps.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
