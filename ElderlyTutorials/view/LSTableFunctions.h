@@ -1,5 +1,5 @@
 //
-//  LSTableTutorials.h
+//  LSTableFunctions.h
 //  ElderlyTutorials
 //
 //  Created by LeafShadow on 14-4-22.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSTableTutorials : UITableViewController
+@interface LSTableFunctions : UITableViewController
+
+@property (nonatomic,strong) NSArray *functions;
 
 @end

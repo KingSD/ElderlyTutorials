@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSTableApps : UITableViewController
+@interface LSTableApps : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

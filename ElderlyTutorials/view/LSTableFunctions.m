@@ -1,18 +1,20 @@
 //
-//  LSTableTutorials.m
+//  LSTableFunctions.m
 //  ElderlyTutorials
 //
 //  Created by LeafShadow on 14-4-22.
 //  Copyright (c) 2014年 LeafShadows. All rights reserved.
 //
 
-#import "LSTableTutorials.h"
+#import "LSTableFunctions.h"
 
-@interface LSTableTutorials ()
+@interface LSTableFunctions ()
 
 @end
 
-@implementation LSTableTutorials
+@implementation LSTableFunctions
+
+@synthesize functions;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    for (int i = 0; i < [functions count]; i++) {
+        NSString *k = [functions objectAtIndex:i];
+        NSLog(@"log2:%@",k);
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,30 +49,38 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [functions count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    NSString *tableFuntIdentifier = @"FunctionsCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableFuntIdentifier forIndexPath:indexPath];
+    
+    if (cell ==nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableFuntIdentifier];
+    }
+
+    
+    cell.textLabel.text = [functions objectAtIndex:indexPath.row];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

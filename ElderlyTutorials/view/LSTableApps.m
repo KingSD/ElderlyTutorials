@@ -7,12 +7,25 @@
 //
 
 #import "LSTableApps.h"
+#import "LSTableFunctions.h"
+#import "LSAppsModel.h"
 
 @interface LSTableApps ()
+{
+    LSAppsModel *vo,*vo2,*vo3,*vo4;
+}
 
 @end
 
 @implementation LSTableApps
+{
+    NSArray *apps;
+    
+    NSArray *weixins;
+    NSArray *qqs;
+    NSArray *apples;
+    NSArray *weibos;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +39,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    qqs = [NSArray arrayWithObjects:@"加好友",@"加群",@"视频聊天",@"语音聊天", nil];
+    
+    weixins = [NSArray arrayWithObjects:@"发朋友圈",@"摇一摇",@"漂流瓶",@"加好友", nil];
+    
+    apples = [NSArray arrayWithObjects:@"facetime",@"短信",@"换主题", nil];
+    
+    weibos = [NSArray arrayWithObjects:@"发微博",@"加关注", nil];
+    
+    vo = [[LSAppsModel alloc] init];
+    vo.name = @"微信";
+    vo.functionsData = weixins;
+    
+    vo2 = [[LSAppsModel alloc] init];
+    vo2.name = @"QQ";
+    vo2.functionsData = qqs;
+    
+    vo3 = [[LSAppsModel alloc] init];
+    vo3.name = @"苹果手机";
+    vo3.functionsData = apples;
+    
+    vo4 = [[LSAppsModel alloc] init];
+    vo4.name = @"微博";
+    vo4.functionsData = weibos;
+    
+    apps = [NSArray arrayWithObjects:vo,vo2,vo3,vo4, nil];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,30 +82,39 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [apps count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    NSString* tableAppIdentifier = @"AppsCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableAppIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableAppIdentifier];
+    }
+    LSAppsModel *vos = [apps objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = vos.name;
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -105,15 +154,25 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    UITableViewCell *cell = (UITableViewCell *) sender;
+    NSString *text_o = cell.textLabel.text;
+    NSLog(@"log:%@",text_o);
+    if ([segue.identifier isEqualToString:@"showTutorials"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        LSTableFunctions * destinationView = segue.destinationViewController;
+        LSAppsModel *vos = [apps objectAtIndex:indexPath.row];
+        destinationView.functions = [[NSArray alloc] initWithArray:vos.functionsData];
+        
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
